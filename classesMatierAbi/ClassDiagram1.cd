@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ABI.MAvenant" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>MAvenant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MCdd">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MCdd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MCdi">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MCdi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MCollaborateur">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQBAAAEAAAAGQMAEAAAAAAAAACAgAgAEoAAAAIAAA=</HashCode>
+      <FileName>MCollaborateur.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Contrats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ABI.MContrat">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAEUAAAABAFAAAAAACAAAAAgAABAAAEAAAABAA=</HashCode>
+      <FileName>MContrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MInterim">
+    <Position X="8.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACBAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MInterim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MListeCollaborateurs">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABABAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MListeCollaborateurs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="listeCollaborateurs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ABI.MStagiaire">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MStagiaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABI.MTemporaire">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIABAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MTemporaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.SortedDictionary&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
