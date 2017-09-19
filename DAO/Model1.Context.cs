@@ -13,9 +13,9 @@ namespace DAO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class ABIContainer : DbContext
     {
-        public Model1Container()
+        public ABIContainer()
             : base("name=Model1Container")
         {
         }
