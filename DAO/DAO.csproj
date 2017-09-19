@@ -66,7 +66,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MCollaborateurDAOEFStatic.cs" />
-    <Compile Include="MContratsDAOEFStatic.cs" />
+    <Compile Include="MContratDAOEFStatic.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\classesMatierAbi\classesMatierAbi.csproj">
+      <Project>{fd74e065-2c17-4f68-9f75-441744608ca2}</Project>
+      <Name>classesMatierAbi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -165,7 +165,7 @@ namespace ABI
         /// <param name="unContrat"></param>
         public void AjouterContrat(MContrat unContrat)
         {
-            //MContrat monCOntrat = unContrat;
+            
             if (Contrats.ContainsKey(unContrat.NumeroContrat))
             {
                 throw new Exception("Le numero de contrat existe deja ou il est de valeur 0");

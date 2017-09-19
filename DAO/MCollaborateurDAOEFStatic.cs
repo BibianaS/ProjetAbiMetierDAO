@@ -9,9 +9,14 @@ namespace DAO
     public class MCollaborateurDAOEFStatic
     {
         //instanciation du db context si null
-        public static void A()
+        public static void InstancieCollaborateur()
         {
+            if(DonneesDAO.DBContextABI == null)
+            {
+                DonneesDAO.DBContextABI = new ABIContainer();
+            }
 
+           
         }
     }
 }

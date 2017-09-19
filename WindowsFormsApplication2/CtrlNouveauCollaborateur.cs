@@ -1,4 +1,5 @@
 ﻿using ABI;
+using DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,10 +52,7 @@ namespace ABI
             //afin de l'envoyer au controlleur Lister pour l'ajouter a la liste
             this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
             this.unCollaborateur.AjouterContrat(leContrat);
-       
-
-
-
+            MCollaborateurDAOEFStatic.I
         }
 
 

@@ -151,6 +151,10 @@
       <Project>{FD74E065-2C17-4F68-9F75-441744608CA2}</Project>
       <Name>classesMatierAbi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{6d8c8a9d-fd28-4fe5-9faa-feb6e484cf82}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
