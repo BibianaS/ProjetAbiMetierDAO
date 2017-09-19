@@ -198,9 +198,10 @@ namespace WindowsFormsApplication2
                         Int32.Parse(txtNumContrat.Text),
                         txtQualification.Text,
                         Decimal.Parse(txtSalaireBrut.Text),
-                        txtMission.Text,
                         dateTimeDebut.Value.Date,
                         dateTimeFin.Value.Date,
+                        txtMotif.Text,
+                        txtMission.Text,                       
                         txtEcole.Text);
                 }
                 else

@@ -10,109 +10,54 @@ namespace ABI
 {
     public abstract class MTemporaire : MContrat
     {
-        private String motif = null;
-        private String mission = null;
-        
-
+        private DateTime dateFin;
+        private String motif;
         /// <summary>
-        /// Constructeur avec Motif liee au CDD 
+        /// Constructeur des contrats Stage et Cdd (avec salaire brut)
         /// </summary>
         /// <param name="qualification"></param>
         /// <param name="statut"></param>
         /// <param name="salaireBrut"></param>
         /// <param name="dateDebut"></param>
-        /// <param name="dateFin"></param>
+        /// <param name="dateFinReel"></param>
         /// <param name="motif"></param>
-        public MTemporaire(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, salaireBrut, dateDebut, dateFin)
+        public MTemporaire(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, salaireBrut, dateDebut)
         {
+            this.DateFin = dateFin;
             this.Motif = motif;
         }
-
         /// <summary>
-        /// Constructeur avec Motif liee Interim
+        /// Constructeur le contrat interim (sans salaire brut)
         /// </summary>
-        /// <param name="numContrat"></param>
         /// <param name="qualification"></param>
         /// <param name="statut"></param>
         /// <param name="dateDebut"></param>
-        /// <param name="dateFin"></param>
+        /// <param name="dateFinReel"></param>
         /// <param name="motif"></param>
-        public MTemporaire(Int32 numContrat, String qualification,  DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, dateDebut, dateFin)
+        public MTemporaire(Int32 numContrat, String qualification,DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, dateDebut)
         {
+            this.DateFin = dateFin;
             this.Motif = motif;
         }
 
-        /// <summary>
-        /// Constructeur avec Mission liee au stagiaire
-        /// </summary>
-        /// <param name="qualification"></param>
-        /// <param name="statut"></param>
-        /// <param name="salaireBrut"></param>
-        /// <param name="mission"></param>
-        /// <param name="dateDebut"></param>
-        /// <param name="dateFin"></param>
-        public MTemporaire(Int32 numContrat, String qualification,  Decimal salaireBrut, String mission, DateTime dateDebut, DateTime dateFin) : base(numContrat, qualification, salaireBrut, dateDebut, dateFin)
+        //Méthode de la date de fin
+        public DateTime DateFin
         {
-            this.Mission = mission;
-        }
-
-        /// <summary>
-        /// Constructeur qui prend en compte un motif et une mission
-        /// </summary>
-        /// <param name="qualification"></param>
-        /// <param name="statut"></param>
-        /// <param name="salaireBrut"></param>
-        /// <param name="dateDebut"></param>
-        /// <param name="dateFin"></param>
-        /// <param name="mission"></param>
-        /// <param name="motif"></param>
-        public MTemporaire(Int32 numContrat, String qualification,  Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String mission, String motif) : base(numContrat, qualification, salaireBrut, dateDebut, dateFin)
-        {
-            this.Mission = mission;
-            this.Motif = motif;
-        }
-
-        /// <summary>
-        /// Propriete du motif du contrat liée au CDD et Interim 
-        /// </summary>
-        public string Motif
-        {
-            get
-            {
-                return this.motif;
-            }
-
+            get => dateFin;
             set
             {
-                this.motif = value;
+                if (value < DateTime.Today || value < DateDebut)
+                {
+                    throw new Exception("Merci de reinseigner une date de fin de contrat posterireur à la date d'aujourd'hui");
+                }
+                else
+                {
+                    this.dateFin = value;
+                }
             }
         }
 
-        /// <summary>
-        /// Propriete de la mission du contrat liée au stagiaire
-        /// </summary>
-        public string Mission
-        {
-            get
-            {
-                return this.mission;
-            }
-
-            set
-            {
-                this.mission = value;
-            }
-        }
-
-        /// <summary>
-        /// Propriete qui decrit le contrat temporaire
-        /// </summary>
-        /// <returns></returns>
-        public override String ToString()
-        {
-            // TODO: implement
-            return base.ToString() + ". Motif du contrat : " + Motif + ".";
-        }
-
+        //Méthode du motif du contrat
+        public string Motif { get => motif; set => motif = value; }
     }
 }

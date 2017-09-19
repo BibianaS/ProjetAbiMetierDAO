@@ -12,29 +12,12 @@ namespace ABI
         private Int32 numeroContrat;
         private String qualification;
         private String statut;
-        private Decimal salaireBrut;
-        DateTime dateDebut;
-        DateTime dateFin;
-
+        private Decimal salaireBrut = 0;
+        private DateTime dateDebut;
+        private DateTime? dateFinReel = null;
+        
         /// <summary>
-        /// Constructeur avec date debut et fin de contrat
-        /// </summary>
-        /// <param name="qualification"></param>
-        /// <param name="statut"></param>
-        /// <param name="salaireBrut"></param>
-        /// <param name="dateDebut"></param>
-        public MContrat(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin)
-        {
-            this.NumeroContrat = numContrat;
-            this.Qualification = qualification;
-            this.SalaireBrut = salaireBrut;
-            this.DateDebut = dateDebut;
-            this.DateFin = dateFin;
-            this.statut = valStatut(dateDebut, dateFin);
-        }
-
-        /// <summary>
-        /// Constructeur avec date debut de contrat
+        /// Constructeur pour le CDI, CDD, Stage
         /// </summary>
         /// <param name="qualification"></param>
         /// <param name="statut"></param>
@@ -46,18 +29,23 @@ namespace ABI
             this.Qualification = qualification;
             this.SalaireBrut = salaireBrut;
             this.DateDebut = dateDebut;
-            this.statut = valStatut(dateDebut, dateFin);
+            this.Statut = "Actif";
         }
 
-        public MContrat(Int32 numContrat, String qualification, DateTime dateDebut, DateTime dateFin)
+        /// <summary>
+        /// Constructeur pour l'Interim
+        /// </summary>
+        /// <param name="qualification"></param>
+        /// <param name="statut"></param>
+        /// <param name="salaireBrut"></param>
+        /// <param name="dateDebut"></param>
+        public MContrat(Int32 numContrat, String qualification, DateTime dateDebut)
         {
             this.NumeroContrat = numContrat;
-            this.DateFin = dateFin;
             this.Qualification = qualification;
-            this.DateDebut = dateDebut;
-            this.statut = valStatut(dateDebut, dateFin);
+            this.Statut = "Actif";
         }
-
+        
         /// <summary>
         /// Propriete du numero de contrat
         /// </summary>
@@ -103,18 +91,7 @@ namespace ABI
                 statut = value;
             }
         }
-        private String valStatut(DateTime dateDebut, DateTime dateFin)
-        {
-            if (DateFin >= DateTime.Today)
-            {
-                statut = "Actif";
-            }
-            else
-            {
-                statut = "Inactif";
-            }
-            return Statut;
-        }
+        
         /// <summary>
         /// Propriete de la date de debut du contrat
         /// </summary>
@@ -129,11 +106,11 @@ namespace ABI
             {
 
                 Int32 result = DateTime.Compare(value, DateTime.Today);
-                if (result <= 0)
+                if (result < 0)
                 {
                     throw new Exception("Merci de reinseigner une date future");
                 }
-                if (result > 0)
+                if (result >= 0)
                 {
                     this.dateDebut = value;
                 }
@@ -157,40 +134,12 @@ namespace ABI
         }
 
         /// <summary>
-        /// Propriete date fin de contrat
-        /// </summary>
-        public DateTime DateFin
-        {
-            get
-            {
-                return dateFin;
-            }
-
-            set
-            {
-                Int32 result = DateTime.Compare(value, DateTime.Now);
-                if (result > 0)
-                {
-                    throw new Exception("Merci de reinseigner une date future");
-                }
-                if (result <= 0 && DateDebut <= value)
-                {
-                    this.dateFin = value;
-                }
-                else
-                {
-                    throw new Exception("Verifier la date de debut et fin de contrat");
-                }
-            }
-        }
-
-        /// <summary>
         /// Methode qui decrit le contrat
         /// </summary>
         /// <returns></returns>
         public override String ToString()
         {
-            return "Date creation du contrat : " + DateTime.Now + ". Numéro de contrat : " + NumeroContrat + ". Qualification : " + Qualification + ". Statut : " + Statut + ". Date debut contrat : " + DateDebut + ". Date de fin : " + DateFin;
+            return "Date creation du contrat : " + DateTime.Now + ". Numéro de contrat : " + NumeroContrat + ". Qualification : " + Qualification + ". Statut : " + Statut + ". Date debut contrat : " + DateDebut ;
         }
     }
 }

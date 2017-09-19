@@ -10,10 +10,12 @@ namespace ABI
     public class MStagiaire : MTemporaire
     {
         private String ecole;
+        private String mission;
 
-        public MStagiaire(Int32 numContrat, String qualification, Decimal salaireBrut, String mission, DateTime dateDebut, DateTime dateFin, String ecole) : base(numContrat, qualification, salaireBrut, mission, dateDebut, dateFin)
+        public MStagiaire(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif, String ecole, String mission) : base(numContrat, qualification, salaireBrut, dateDebut, dateFin, motif)
         {
             this.Ecole = ecole;
+            this.Mission = mission;
         }
 
         public string Ecole
@@ -28,5 +30,7 @@ namespace ABI
                 this.Ecole = value;
             }
         }
+
+        public string Mission { get => mission; set => mission = value; }
     }
 }

@@ -4,18 +4,193 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="Model1TargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="CollaborateurSet" EntityType="Model1.Store.CollaborateurSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet" EntityType="Model1.Store.ContratsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet_Temporaire" EntityType="Model1.Store.ContratsSet_Temporaire" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet_CDI" EntityType="Model1.Store.ContratsSet_CDI" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet_Cdd" EntityType="Model1.Store.ContratsSet_Cdd" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet_Interim" EntityType="Model1.Store.ContratsSet_Interim" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratsSet_Stage" EntityType="Model1.Store.ContratsSet_Stage" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CollaborateurContrats" Association="Model1.Store.CollaborateurContrats">
+      <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+      <End Role="Contrats" EntitySet="ContratsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Temporaire_inherits_Contrats" Association="Model1.Store.FK_Temporaire_inherits_Contrats">
+      <End Role="Contrats" EntitySet="ContratsSet" />
+      <End Role="Temporaire" EntitySet="ContratsSet_Temporaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CDI_inherits_Contrats" Association="Model1.Store.FK_CDI_inherits_Contrats">
+      <End Role="Contrats" EntitySet="ContratsSet" />
+      <End Role="CDI" EntitySet="ContratsSet_CDI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cdd_inherits_Temporaire" Association="Model1.Store.FK_Cdd_inherits_Temporaire">
+      <End Role="Temporaire" EntitySet="ContratsSet_Temporaire" />
+      <End Role="Cdd" EntitySet="ContratsSet_Cdd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Interim_inherits_Temporaire" Association="Model1.Store.FK_Interim_inherits_Temporaire">
+      <End Role="Temporaire" EntitySet="ContratsSet_Temporaire" />
+      <End Role="Interim" EntitySet="ContratsSet_Interim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stage_inherits_Temporaire" Association="Model1.Store.FK_Stage_inherits_Temporaire">
+      <End Role="Temporaire" EntitySet="ContratsSet_Temporaire" />
+      <End Role="Stage" EntitySet="ContratsSet_Stage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CollaborateurSet">
+    <Key>
+      <PropertyRef Name="Matricule" />
+    </Key>
+    <Property Name="Matricule" Type="int" Nullable="false" />
+    <Property Name="PrenomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="NomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PhotoCollabo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumeroSS" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="NumeroContrat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Qualification" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Statut" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="SalaireBrut" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DateDebut" Type="datetime" Nullable="false" />
+    <Property Name="DateFinReel" Type="datetime" Nullable="true" />
+    <Property Name="CollaborateurMatricule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet_Temporaire">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="DateFin" Type="datetime" Nullable="false" />
+    <Property Name="Motf" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumeroContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet_CDI">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="NumeroContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet_Cdd">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="NumeroContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet_Interim">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="AgenceInterim" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indemnites" Type="decimal" Nullable="false" />
+    <Property Name="NumeroContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratsSet_Stage">
+    <Key>
+      <PropertyRef Name="NumeroContrat" />
+    </Key>
+    <Property Name="Ecole" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mission" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumeroContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CollaborateurContrats">
+    <End Role="Collaborateur" Type="Model1.Store.CollaborateurSet" Multiplicity="1" />
+    <End Role="Contrats" Type="Model1.Store.ContratsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collaborateur">
+        <PropertyRef Name="Matricule" />
+      </Principal>
+      <Dependent Role="Contrats">
+        <PropertyRef Name="CollaborateurMatricule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Temporaire_inherits_Contrats">
+    <End Role="Contrats" Type="Model1.Store.ContratsSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Temporaire" Type="Model1.Store.ContratsSet_Temporaire" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contrats">
+        <PropertyRef Name="NumeroContrat" />
+      </Principal>
+      <Dependent Role="Temporaire">
+        <PropertyRef Name="NumeroContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CDI_inherits_Contrats">
+    <End Role="Contrats" Type="Model1.Store.ContratsSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CDI" Type="Model1.Store.ContratsSet_CDI" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contrats">
+        <PropertyRef Name="NumeroContrat" />
+      </Principal>
+      <Dependent Role="CDI">
+        <PropertyRef Name="NumeroContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cdd_inherits_Temporaire">
+    <End Role="Temporaire" Type="Model1.Store.ContratsSet_Temporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cdd" Type="Model1.Store.ContratsSet_Cdd" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Temporaire">
+        <PropertyRef Name="NumeroContrat" />
+      </Principal>
+      <Dependent Role="Cdd">
+        <PropertyRef Name="NumeroContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Interim_inherits_Temporaire">
+    <End Role="Temporaire" Type="Model1.Store.ContratsSet_Temporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Interim" Type="Model1.Store.ContratsSet_Interim" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Temporaire">
+        <PropertyRef Name="NumeroContrat" />
+      </Principal>
+      <Dependent Role="Interim">
+        <PropertyRef Name="NumeroContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stage_inherits_Temporaire">
+    <End Role="Temporaire" Type="Model1.Store.ContratsSet_Temporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Stage" Type="Model1.Store.ContratsSet_Stage" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Temporaire">
+        <PropertyRef Name="NumeroContrat" />
+      </Principal>
+      <Dependent Role="Stage">
+        <PropertyRef Name="NumeroContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CollaborateursSet" EntityType="Model1.Collaborateurs" />
+          <EntitySet Name="CollaborateurSet" EntityType="Model1.Collaborateur" />
+          <EntitySet Name="ContratsSet" EntityType="Model1.Contrats" />
+          <AssociationSet Name="CollaborateurContrats" Association="Model1.CollaborateurContrats">
+            <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+            <End Role="Contrats" EntitySet="ContratsSet" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Collaborateurs" >
+        <EntityType Name="Collaborateur" >
           <Key>
             <PropertyRef Name="Matricule" />
           </Key>
@@ -24,18 +199,112 @@
           <Property Name="NomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="PhotoCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="NumeroSS" Type="Single" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Contrats" Relationship="Model1.CollaborateurContrats" FromRole="Collaborateur" ToRole="Contrats" />
         </EntityType>
+        <EntityType Name="Contrats">
+          <Key>
+            <PropertyRef Name="NumeroContrat" />
+          </Key>
+          <Property Name="NumeroContrat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Qualification" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="Statut" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="SalaireBrut" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="DateDebut" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="DateFinReel" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Collaborateur" Relationship="Model1.CollaborateurContrats" FromRole="Contrats" ToRole="Collaborateur" />
+          <Property Name="CollaborateurMatricule" Type="Int32" Nullable="false" cg:GetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="Temporaire" BaseType="Model1.Contrats">
+          <Property Name="DateFin" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Motf" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="CDI" BaseType="Model1.Contrats">
+        </EntityType>
+        <EntityType Name="Cdd" BaseType="Model1.Temporaire">
+        </EntityType>
+        <EntityType Name="Interim" BaseType="Model1.Temporaire">
+          <Property Name="AgenceInterim" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Indemnites" Type="Decimal" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="Stage" BaseType="Model1.Temporaire">
+          <Property Name="Ecole" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Mission" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <Association Name="CollaborateurContrats">
+          <End Type="Model1.Collaborateur" Role="Collaborateur" Multiplicity="1" />
+          <End Type="Model1.Contrats" Role="Contrats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collaborateur">
+              <PropertyRef Name="Matricule" />
+            </Principal>
+            <Dependent Role="Contrats">
+              <PropertyRef Name="CollaborateurMatricule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Model1" />
-        <Alias Key="Target" Value="Model1.Store" />
-        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="CollaborateurSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Collaborateur)">
+        <MappingFragment StoreEntitySet="CollaborateurSet">
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="PrenomCollabo" ColumnName="PrenomCollabo" />
+          <ScalarProperty Name="NomCollabo" ColumnName="NomCollabo" />
+          <ScalarProperty Name="PhotoCollabo" ColumnName="PhotoCollabo" />
+          <ScalarProperty Name="NumeroSS" ColumnName="NumeroSS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContratsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Contrats)">
+        <MappingFragment StoreEntitySet="ContratsSet">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="SalaireBrut" ColumnName="SalaireBrut" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateFinReel" ColumnName="DateFinReel" />
+          <ScalarProperty Name="CollaborateurMatricule" ColumnName="CollaborateurMatricule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Temporaire)">
+        <MappingFragment StoreEntitySet="ContratsSet_Temporaire">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="Motf" ColumnName="Motf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.CDI)">
+        <MappingFragment StoreEntitySet="ContratsSet_CDI">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cdd)">
+        <MappingFragment StoreEntitySet="ContratsSet_Cdd">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Interim)">
+        <MappingFragment StoreEntitySet="ContratsSet_Interim">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+          <ScalarProperty Name="AgenceInterim" ColumnName="AgenceInterim" />
+          <ScalarProperty Name="Indemnites" ColumnName="Indemnites" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stage)">
+        <MappingFragment StoreEntitySet="ContratsSet_Stage">
+          <ScalarProperty Name="NumeroContrat" ColumnName="NumeroContrat" />
+          <ScalarProperty Name="Ecole" ColumnName="Ecole" />
+          <ScalarProperty Name="Mission" ColumnName="Mission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -49,6 +318,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

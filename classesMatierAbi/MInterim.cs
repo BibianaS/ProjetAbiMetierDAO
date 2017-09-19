@@ -18,6 +18,8 @@ namespace ABI
             this.IndemnitesInterim = indemnites;
         }
 
+
+        //Méthode qui enregistre le nom de l'agence intérim
         public string AgenceInterim
         {
             get
@@ -31,6 +33,7 @@ namespace ABI
             }
         }
 
+        //Méthode qui enregistre les indemnités
         public decimal IndemnitesInterim
         {
             get
