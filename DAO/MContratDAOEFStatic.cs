@@ -14,7 +14,7 @@ namespace DAO
             //instancier un dbContext si besoin
             if (DonneesDAO.DBContextABI == null)
             {
-                DonneesDAO.DBContextABI = new ABIContainer();
+                DonneesDAO.DBContextABI = new Model1Container();
             }
 
             //Recupere un collaborateur avec une matricrule specifique
@@ -31,7 +31,7 @@ namespace DAO
                 {
                     leContrat = new MCdi(item.NumeroContrat,
                         item.Qualification,
-                        Decimal.Parse(item.SalaireBrut),
+                        item.SalaireBrut,
                         item.DateDebut);
                 }
                 //Si le contrat est un Interim
@@ -51,7 +51,7 @@ namespace DAO
                 {
                     leContrat = new MCdd(item.NumeroContrat,
                         item.Qualification,
-                        Decimal.Parse(item.SalaireBrut),
+                        item.SalaireBrut,
                         item.DateDebut,
                         ((Interim)item).DateFin,
                         ((Interim)item).Motf);
@@ -62,7 +62,7 @@ namespace DAO
                 {
                     leContrat = new MStagiaire(item.NumeroContrat,
                         item.Qualification,
-                        Decimal.Parse(item.SalaireBrut),
+                        item.SalaireBrut,
                         item.DateDebut,
                         ((Stage)item).DateFin,
                         ((Stage)item).Motf,
@@ -73,14 +73,15 @@ namespace DAO
             }
         }
 
-        public static void InsereCollaborateur(MCollaborateur unCollabo, MContrat unContrat)
+        public static void InsereContrat(MCollaborateur unCollabo, MContrat unContrat)
         {
             if (DonneesDAO.DBContextABI == null)
             {
-                DonneesDAO.DBContextABI = new ABIContainer();
+                DonneesDAO.DBContextABI = new Model1Container();
             }
 
-            var query = 
+
+            //var query = 
         }
     }
 }

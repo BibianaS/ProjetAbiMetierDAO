@@ -24,7 +24,7 @@ namespace DAO
         internal string PrenomCollabo { get; set; }
         internal string NomCollabo { get; set; }
         internal string PhotoCollabo { get; set; }
-        internal float NumeroSS { get; set; }
+        internal int NumeroSS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrats> Contrats { get; set; }

@@ -8,6 +8,6 @@ namespace DAO
 {
     internal class DonneesDAO
     {
-        public static ABIContainer DBContextABI;
+        public static Model1Container DBContextABI;
     }
 }

@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[CollaborateurSet] (
     [PrenomCollabo] nvarchar(20)  NOT NULL,
     [NomCollabo] nvarchar(20)  NOT NULL,
     [PhotoCollabo] nvarchar(max)  NOT NULL,
-    [NumeroSS] real  NOT NULL
+    [NumeroSS] int NOT NULL
 );
 GO
 
@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[ContratsSet] (
     [NumeroContrat] int IDENTITY(1,1) NOT NULL,
     [Qualification] nvarchar(20)  NOT NULL,
     [Statut] nvarchar(20)  NOT NULL,
-    [SalaireBrut] nvarchar(20)  NULL,
+    [SalaireBrut] decimal(10,2)  NULL,
     [DateDebut] datetime  NOT NULL,
     [DateFinReel] datetime  NULL,
     [CollaborateurMatricule] int  NOT NULL
@@ -72,7 +72,7 @@ GO
 -- Creating table 'ContratsSet_Interim'
 CREATE TABLE [dbo].[ContratsSet_Interim] (
     [AgenceInterim] nvarchar(max)  NOT NULL,
-    [Indemnites] decimal(18,0)  NOT NULL,
+    [Indemnites] decimal(10,2)  NOT NULL,
     [NumeroContrat] int  NOT NULL
 );
 GO

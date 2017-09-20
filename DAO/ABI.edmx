@@ -208,7 +208,7 @@
           <Property Name="NumeroContrat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="Qualification" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="Statut" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
-          <Property Name="SalaireBrut" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="SalaireBrut" Type="Decimal" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="DateDebut" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="DateFinReel" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Collaborateur" Relationship="Model1.CollaborateurContrats" FromRole="Contrats" ToRole="Collaborateur" />

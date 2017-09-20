@@ -17,7 +17,7 @@ namespace DAO
         internal int NumeroContrat { get; set; }
         internal string Qualification { get; set; }
         internal string Statut { get; set; }
-        internal string SalaireBrut { get; set; }
+        internal decimal SalaireBrut { get; set; }
         internal System.DateTime DateDebut { get; set; }
         internal Nullable<System.DateTime> DateFinReel { get; set; }
         public int CollaborateurMatricule { internal get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,28 +21,29 @@ namespace ABI
             init();
             //instanciation du frm principale 
             frmAbi = new frmABI(listeCol);
-            frmAbi.MdiParent = parent;
-            frmAbi.Show();
+            frmAbi.MdiParent = parent;        
             this.frmAbi.afficherCollaborateurs();
             this.frmAbi.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             this.frmAbi.grdCollaborateurs.DoubleClick += new System.EventHandler(this.grdCollaborateurs_DoubleClick);
+            frmAbi.Show();
         }
 
         /// <summary>
         /// Initialisation jeu d'essai
         /// </summary>
         public void init()
-        {
+        { 
             //Initialise la collection de collaborateurs
             //Cree une liste et une dataTable dns MListeCollaborateurs
             this.listeCol = new MListeCollaborateurs();
-            
-            //Collaborateur essaie
-            MCollaborateur collab1 = new MCollaborateur(32569,"thomas", "Depuis", "896");
-            this.listeCol.Ajouter(collab1);
-            //Collaborateur essaie
-            MCollaborateur collab2 = new MCollaborateur(75965, "Roberto", "Carlos", "123");
-            this.listeCol.Ajouter(collab2);
+            MCollaborateurDAOEFStatic.InstancieCollaborateur(this.listeCol);
+
+            ////Collaborateur essaie
+            //MCollaborateur collab1 = new MCollaborateur(32569,"thomas", "Depuis", "896");
+            //this.listeCol.Ajouter(collab1);
+            ////Collaborateur essaie
+            //MCollaborateur collab2 = new MCollaborateur(75965, "Roberto", "Carlos", "123");
+            //this.listeCol.Ajouter(collab2);
 
         }
 
