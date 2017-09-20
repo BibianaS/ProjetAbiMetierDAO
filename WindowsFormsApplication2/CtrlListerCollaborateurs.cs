@@ -18,10 +18,12 @@ namespace ABI
         /// </summary>
         public CtrlListerCollaborateurs(MDIParent1 parent)
         {
+            //Instanciation d'une liste de collaborateurs
+            //
             init();
             //instanciation du frm principale 
             frmAbi = new frmABI(listeCol);
-            frmAbi.MdiParent = parent;        
+            frmAbi.MdiParent = parent;
             this.frmAbi.afficherCollaborateurs();
             this.frmAbi.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             this.frmAbi.grdCollaborateurs.DoubleClick += new System.EventHandler(this.grdCollaborateurs_DoubleClick);
@@ -29,22 +31,15 @@ namespace ABI
         }
 
         /// <summary>
-        /// Initialisation jeu d'essai
+        ///Instanciation d'une liste de collaborateurs
+        ///Utilise une méthode de la class DAO pour recuperer les valeurs de la BDD et creer une liste
         /// </summary>
         public void init()
-        { 
-            //Initialise la collection de collaborateurs
+        {
+            //Instancie une collection de collaborateurs
             //Cree une liste et une dataTable dns MListeCollaborateurs
             this.listeCol = new MListeCollaborateurs();
             MCollaborateurDAOEFStatic.InstancieCollaborateur(this.listeCol);
-
-            ////Collaborateur essaie
-            //MCollaborateur collab1 = new MCollaborateur(32569,"thomas", "Depuis", "896");
-            //this.listeCol.Ajouter(collab1);
-            ////Collaborateur essaie
-            //MCollaborateur collab2 = new MCollaborateur(75965, "Roberto", "Carlos", "123");
-            //this.listeCol.Ajouter(collab2);
-
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -52,10 +47,22 @@ namespace ABI
             CtrlNouveauCollaborateur nouvCol = new CtrlNouveauCollaborateur();
 
             //Si l'instanciation du collaborateur s'est bien passe
-            if(nouvCol.ResultatDialog == System.Windows.Forms.DialogResult.OK)
+            if (nouvCol.ResultatDialog == System.Windows.Forms.DialogResult.OK)
             {
-                //Ajouter a la liste de collaborateurs
-                this.listeCol.Ajouter(nouvCol.UnCollaborateur);
+                try
+                {
+                    //Ajouter a la liste de collaborateurs
+                    this.listeCol.Ajouter(nouvCol.UnCollaborateur);
+                }
+                catch (Exception ex)
+                {
+                    this.frmAbi.L
+                }
+
+                //mettre à jour la BDD à l'aide d'un dbContext
+                MCollaborateurDAOEFStatic.InsereCollaborateur(nouvCol.UnCollaborateur);
+
+                //régènerer l'affichage du dataGridView
                 this.frmAbi.afficherCollaborateurs();
             }
         }

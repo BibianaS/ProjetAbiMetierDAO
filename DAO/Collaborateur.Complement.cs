@@ -9,9 +9,9 @@ namespace DAO
     public partial class Collaborateur
     {
 
-        public Collaborateur(Int32 matricule, String prenomCollabo, String nomCollabo, String photo, Int32 numeroSS, ICollection<Contrats> contrats )
+        public Collaborateur(Int32 matricule, String prenomCollabo, String nomCollabo, String photo, Int32 numeroSS)
         {
-
+            this.Contrats = new HashSet<Contrats>();
         }
     }
 }

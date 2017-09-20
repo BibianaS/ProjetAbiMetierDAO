@@ -39,6 +39,13 @@ namespace ABI
         {
             this.Close();
         }
-
+        /// <summary>
+        /// affiche le label d'erreur
+        /// </summary>
+        /// <param name="ex"></param>
+        public void LeveErreur(Exception ex)
+        {
+            this.lblErreur.Text = ex.Message;
+        }
     }
 }

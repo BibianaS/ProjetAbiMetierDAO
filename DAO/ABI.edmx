@@ -46,7 +46,7 @@
     <Property Name="PrenomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="NomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PhotoCollabo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumeroSS" Type="real" Nullable="false" />
+    <Property Name="NumeroSS" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet">
     <Key>
@@ -55,7 +55,7 @@
     <Property Name="NumeroContrat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Qualification" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Statut" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="SalaireBrut" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="SalaireBrut" Type="decimal" Nullable="true" />
     <Property Name="DateDebut" Type="datetime" Nullable="false" />
     <Property Name="DateFinReel" Type="datetime" Nullable="true" />
     <Property Name="CollaborateurMatricule" Type="int" Nullable="false" />
@@ -198,7 +198,7 @@
           <Property Name="PrenomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="NomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="PhotoCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
-          <Property Name="NumeroSS" Type="Single" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="NumeroSS" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrats" Relationship="Model1.CollaborateurContrats" FromRole="Collaborateur" ToRole="Contrats" />
         </EntityType>
         <EntityType Name="Contrats">

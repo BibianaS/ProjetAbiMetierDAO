@@ -10,7 +10,12 @@ namespace DAO
     public class MCollaborateurDAOEFStatic
     {
 
-               
+        /// <summary>
+        /// Recuèere une liste de collaborateurs vide
+        /// Recupère chaque collaborateur de la BDD
+        /// Ajoute chaque collaborateur à la liste recuperée par paramètre
+        /// </summary>
+        /// <param name="listeCollaborateurs"></param>        
         public static void InstancieCollaborateur(MListeCollaborateurs listeCollaborateurs)
         {
             //instancier un dbContext si besoin
@@ -39,16 +44,29 @@ namespace DAO
         }
 
 
-        //public static void InsereContrat(MCollaborateur unCollabo, MContrat unContrat)
-        //{
-        //    if (DonneesDAO.DBContextABI == null)
-        //    {
-        //        DonneesDAO.DBContextABI = new ABIContainer();
-        //    }
+        public static void InsereCollaborateur(MCollaborateur unCollabo)
+        {
+            if (DonneesDAO.DBContextABI == null)
+            {
+                DonneesDAO.DBContextABI = new Model1Container();
+            }
+            Collaborateur unCollaboateurEF = null;
 
-
-        //    //var query = 
-        //}
+            unCollaboateurEF = new Collaborateur(unCollabo.Matricule,
+                unCollabo.PrenomCollabo,
+                unCollabo.NomCollabo,
+                unCollabo.PhotoCollabo,
+                Int32.Parse(unCollabo.NumeroSS));
+            try
+            {
+                DonneesDAO.DBContextABI.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            //unCollaboateurEF.Contrats = unCollabo.
+        }
 
     }
 
