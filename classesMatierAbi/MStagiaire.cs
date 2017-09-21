@@ -31,6 +31,10 @@ namespace ABI
             }
         }
 
-        public string Mission { get => mission; set => mission = value; }
+        public string Mission
+        {
+            get { return this.mission; }
+            set { this.mission = value; }
+        }
     }
 }
