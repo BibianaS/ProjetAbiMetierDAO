@@ -56,7 +56,7 @@ namespace ABI
                 }
                 catch (Exception ex)
                 {
-                    this.frmAbi.L
+                //    this.frmAbi.L
                 }
 
                 //mettre à jour la BDD à l'aide d'un dbContext

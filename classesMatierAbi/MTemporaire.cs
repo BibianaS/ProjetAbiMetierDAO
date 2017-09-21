@@ -34,7 +34,7 @@ namespace ABI
         /// <param name="dateDebut"></param>
         /// <param name="dateFinReel"></param>
         /// <param name="motif"></param>
-        public MTemporaire(Int32 numContrat, String qualification,DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, dateDebut)
+        public MTemporaire(Int32 numContrat, String qualification, DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, dateDebut)
         {
             this.DateFin = dateFin;
             this.Motif = motif;
@@ -43,7 +43,10 @@ namespace ABI
         //Méthode de la date de fin
         public DateTime DateFin
         {
-            get => dateFin;
+            get
+            {
+                return this.dateFin;
+            }
             set
             {
                 if (value < DateTime.Today || value < DateDebut)
@@ -58,6 +61,16 @@ namespace ABI
         }
 
         //Méthode du motif du contrat
-        public string Motif { get => motif; set => motif = value; }
+        public string Motif
+        {
+            get
+            {
+                return this.motif;
+            }
+            set
+            {
+                motif = value;
+            }
+        }
     }
 }

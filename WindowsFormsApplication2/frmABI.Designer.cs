@@ -31,6 +31,7 @@
             this.grdCollaborateurs = new System.Windows.Forms.DataGridView();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
+            this.lblErreur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdCollaborateurs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,21 @@
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
+            // lblErreur
+            // 
+            this.lblErreur.AutoSize = true;
+            this.lblErreur.Location = new System.Drawing.Point(13, 290);
+            this.lblErreur.MaximumSize = new System.Drawing.Size(90, 13);
+            this.lblErreur.Name = "lblErreur";
+            this.lblErreur.Size = new System.Drawing.Size(0, 13);
+            this.lblErreur.TabIndex = 4;
+            // 
             // frmABI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 314);
+            this.Controls.Add(this.lblErreur);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.grdCollaborateurs);
@@ -73,6 +84,7 @@
             this.Text = "Lister les Collaborateurs";
             ((System.ComponentModel.ISupportInitialize)(this.grdCollaborateurs)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,5 +92,6 @@
         private System.Windows.Forms.Button btnFermer;
         internal System.Windows.Forms.Button btnAjouter;
         internal System.Windows.Forms.DataGridView grdCollaborateurs;
+        internal System.Windows.Forms.Label lblErreur;
     }
 }
