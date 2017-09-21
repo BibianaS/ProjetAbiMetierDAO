@@ -40,34 +40,36 @@ namespace DAO
 
                 //Ajoute à la liste de collaborateurs du MListeCollaborateur les collaborateurs recuperés
                 listeCollaborateurs.Ajouter(leCollaborateur);
-            }            
+            }
         }
 
 
-        public static void InsereCollaborateur(MCollaborateur unCollabo)
+        public static void InsereCollaborateur(MCollaborateur unCollabo, MContrat unContrat)
         {
             if (DonneesDAO.DBContextABI == null)
             {
                 DonneesDAO.DBContextABI = new Model1Container();
             }
-            Collaborateur unCollaboateurEF = null;
 
-            unCollaboateurEF = new Collaborateur(unCollabo.Matricule,
+                Collaborateur unCollaborateurEF = null;
+                unCollaborateurEF = new Collaborateur(unCollabo.Matricule,
                 unCollabo.PrenomCollabo,
                 unCollabo.NomCollabo,
                 unCollabo.PhotoCollabo,
-                Int32.Parse(unCollabo.NumeroSS));
-            try
-            {
-                DonneesDAO.DBContextABI.SaveChanges();
+                Int32.Parse(unCollabo.NumeroSS),
+                unContrat);
+
+                try
+                {
+                    DonneesDAO.DBContextABI.CollaborateurSet.Add(unCollaborateurEF);
+                    DonneesDAO.DBContextABI.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                
             }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            //unCollaboateurEF.Contrats = unCollabo.
-        }
+         }
 
     }
-
-}

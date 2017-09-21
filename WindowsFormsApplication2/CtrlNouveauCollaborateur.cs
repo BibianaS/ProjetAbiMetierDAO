@@ -18,7 +18,6 @@ namespace ABI
         private MContrat leContrat;
         private CtrlNouvContrat nouvContrat;
 
-
         public MCollaborateur UnCollaborateur
         {
             get
@@ -33,6 +32,14 @@ namespace ABI
             {
                 return resultatDialog;
             }
+        }
+
+        public MContrat LeContrat
+        {
+            get
+            {
+                return leContrat;
+            }            
         }
 
         public CtrlNouveauCollaborateur()
@@ -51,7 +58,7 @@ namespace ABI
             //recupertation du ref du collaborateur instancie par le form
             //afin de l'envoyer au controlleur Lister pour l'ajouter a la liste
             this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
-            this.unCollaborateur.AjouterContrat(leContrat);
+            this.unCollaborateur.AjouterContrat(LeContrat);
             //MCollaborateurDAOEFStatic.I
         }
 
