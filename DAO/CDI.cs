@@ -14,5 +14,6 @@ namespace DAO
     
     public partial class CDI : Contrats
     {
+
     }
 }
