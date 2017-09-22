@@ -57,6 +57,7 @@ namespace DAO
                 unCollabo.NomCollabo,
                 unCollabo.PhotoCollabo,
                 Int32.Parse(unCollabo.NumeroSS));
+
             try
             {
                 DonneesDAO.DBContextABI.SaveChanges();
@@ -66,6 +67,32 @@ namespace DAO
                 throw ex;
             }
             //unCollaboateurEF.Contrats = unCollabo.
+        }
+
+        public static void InserenouveauCOllaborateur(MCollaborateur unCollabo, MContrat contrat)
+        {
+            if (DonneesDAO.DBContextABI == null)
+            {
+                DonneesDAO.DBContextABI = new Model1Container();
+            }
+
+            Collaborateur c = new Collaborateur();
+            c.Matricule = unCollabo.Matricule;
+            c.NomCollabo = unCollabo.NomCollabo;
+            c.PrenomCollabo = unCollabo.PrenomCollabo;
+            c.PhotoCollabo = unCollabo.PhotoCollabo;
+            c.NumeroSS = Int32.Parse(unCollabo.NumeroSS);
+            Collaborateur unCollaboateurEF = new Collaborateur(unCollabo.Matricule,
+                unCollabo.PrenomCollabo,
+                unCollabo.NomCollabo,
+                unCollabo.PhotoCollabo,
+                Int32.Parse(unCollabo.NumeroSS));
+            Contrats contratEf = new Contrats(contrat.NumeroContrat, contrat.Qualification, contrat.SalaireBrut, contrat.DateDebut);
+            
+            unCollaboateurEF.Contrats.Add(contratEf);
+            DonneesDAO.DBContextABI.CollaborateurSet.Add(unCollaboateurEF);
+            DonneesDAO.DBContextABI.SaveChanges();
+
         }
 
     }

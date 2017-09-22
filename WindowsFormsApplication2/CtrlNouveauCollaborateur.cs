@@ -50,8 +50,8 @@ namespace ABI
 
             //recupertation du ref du collaborateur instancie par le form
             //afin de l'envoyer au controlleur Lister pour l'ajouter a la liste
-            this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
-            this.unCollaborateur.AjouterContrat(leContrat);
+            //this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
+            //this.unCollaborateur.AjouterContrat(leContrat);
             //MCollaborateurDAOEFStatic.I
         }
 
@@ -64,6 +64,11 @@ namespace ABI
                 if (this.frmAjouter.Instancie())
                 {
                     this.frmAjouter.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
+
+                    MCollaborateurDAOEFStatic.InserenouveauCOllaborateur(unCollaborateur, leContrat);
+                    unCollaborateur.AjouterContrat(leContrat);
+
                     this.resultatDialog = this.frmAjouter.DialogResult;
                 }
                 else
@@ -83,6 +88,8 @@ namespace ABI
                 this.leContrat = this.nouvContrat.LeContrat;
             }
         }
+
+      
 
     }
 }

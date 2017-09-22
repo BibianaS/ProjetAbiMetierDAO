@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public partial class Contrat
+    public partial class Contrats
     {
-        public Contrat (Int32 numeroContrat, String qualificatioin, Decimal salaire, DateTime dateDeb)
+        public Contrats (Int32 numeroContrat, String qualificatioin, Decimal salaire, DateTime dateDeb)
         {
         }
-        public Contrat() { }
+        public Contrats() { }
     }
 }
