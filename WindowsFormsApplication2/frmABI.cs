@@ -45,7 +45,7 @@ namespace ABI
         /// <param name="ex"></param>
         public void LeveErreur(Exception ex)
         {
-            //this.lblErreur.Text = ex.Message;
+            this.lblErreur.Text = ex.Message;
         }
     }
 }

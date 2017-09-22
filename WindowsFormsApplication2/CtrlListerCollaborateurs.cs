@@ -56,11 +56,11 @@ namespace ABI
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("To handle later this.unCollaborateur = this.frmAjouter.NouvCollaborateur");
+                    this.frmAbi.L
                 }
 
                 //mettre à jour la BDD à l'aide d'un dbContext
-                //MCollaborateurDAOEFStatic.InsereCollaborateur(nouvCol.UnCollaborateur);
+                MCollaborateurDAOEFStatic.InsereCollaborateur(nouvCol.UnCollaborateur);
 
                 //régènerer l'affichage du dataGridView
                 this.frmAbi.afficherCollaborateurs();
