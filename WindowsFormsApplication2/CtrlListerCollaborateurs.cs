@@ -56,7 +56,8 @@ namespace ABI
                 }
                 catch (Exception ex)
                 {
-                    this.frmAbi.L
+                    // this.frmAbi.L
+                    throw new Exception("Ajouter click erreur");
                 }
 
                 //mettre à jour la BDD à l'aide d'un dbContext
