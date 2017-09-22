@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public partial class CDI
+    public partial class Cdi
     {
-        public CDI(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut): base (numContrat, qualification, salaireBrut, dateDebut)
+        public Cdi(Int32 numContrat, String quelification, Decimal salaireBrut, DateTime dateDebut)
         {
 
         }
 
-        public CDI()
+        public Cdi()
         {
         }
     }
