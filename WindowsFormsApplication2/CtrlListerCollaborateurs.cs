@@ -12,7 +12,6 @@ namespace ABI
     {
         private MListeCollaborateurs listeCol;
         private MCollaborateur monCollabo;
-        private MContrat unContrat;
         frmABI frmAbi;
         /// <summary>
         /// constructeur controleur liste collaborateurs
@@ -28,8 +27,6 @@ namespace ABI
             this.frmAbi.afficherCollaborateurs();
             this.frmAbi.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             this.frmAbi.grdCollaborateurs.DoubleClick += new System.EventHandler(this.grdCollaborateurs_DoubleClick);
-            this.frmAbi.afficherCollaborateurs();
-
             frmAbi.Show();
         }
 
@@ -48,7 +45,6 @@ namespace ABI
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             CtrlNouveauCollaborateur nouvCol = new CtrlNouveauCollaborateur();
-            unContrat = nouvCol.LeContrat;
 
             //Si l'instanciation du collaborateur s'est bien passe
             if (nouvCol.ResultatDialog == System.Windows.Forms.DialogResult.OK)
@@ -57,29 +53,17 @@ namespace ABI
                 {
                     //Ajouter a la liste de collaborateurs
                     this.listeCol.Ajouter(nouvCol.UnCollaborateur);
-
-                    try
-                    {
-                        MContratDAOEFStatic.InsereContrat(unContrat);
-                        //mettre à jour la BDD à l'aide d'un dbContext
-                        MCollaborateurDAOEFStatic.InsereCollaborateur(nouvCol.UnCollaborateur, Contrats.);
-                    }
-                    catch (Exception ex)
-                    {
-                        this.frmAbi.LeveErreur(ex);
-                    }
                 }
                 catch (Exception ex)
                 {
-                    this.frmAbi.LeveErreur(ex);
+                    throw new Exception("To handle later this.unCollaborateur = this.frmAjouter.NouvCollaborateur");
                 }
 
-                finally
-                {
-                    //régènerer l'affichage du dataGridView
-                    this.frmAbi.afficherCollaborateurs();
-                }
-                
+                //mettre à jour la BDD à l'aide d'un dbContext
+                //MCollaborateurDAOEFStatic.InsereCollaborateur(nouvCol.UnCollaborateur);
+
+                //régènerer l'affichage du dataGridView
+                this.frmAbi.afficherCollaborateurs();
             }
         }
 
