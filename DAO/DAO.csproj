@@ -62,7 +62,7 @@
     <Compile Include="Collaborateur.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contrats.Complement.cs" />
+    <Compile Include="Contrat.Complement.cs" />
     <Compile Include="Contrats.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
