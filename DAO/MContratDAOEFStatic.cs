@@ -74,72 +74,72 @@ namespace DAO
         }
 
 
-        public static ICollection<Contrats> InsereContrat(MContrat unContrat)
-        {
-            if (DonneesDAO.DBContextABI == null)
-            {
-                DonneesDAO.DBContextABI = new Model1Container();
-            }
+        //public static ICollection<Contrats> InsereContrat(MContrat unContrat)
+        //{
+        //    if (DonneesDAO.DBContextABI == null)
+        //    {
+        //        DonneesDAO.DBContextABI = new Model1Container();
+        //    }
 
-            Contrats unContratEF = null;
+        //    Contrats unContratEF = null;
 
-            //si le ciontrat c'est un CDI
-            if (unContrat is MCdi)
-            {
-                    unContratEF = new CDI(unContrat.NumeroContrat,
-                    unContrat.Qualification,
-                    unContrat.SalaireBrut,
-                    unContrat.DateDebut);
-            }
-            //Si le contrat est un Interim
-            if (unContrat is MInterim)
-            {
-                unContratEF = new Interim(unContrat.NumeroContrat,
-                    unContrat.Qualification,
-                    0,
-                    unContrat.DateDebut,
-                    ((MInterim)unContrat).DateFin,
-                    ((MInterim)unContrat).Motif,
-                    ((MInterim)unContrat).AgenceInterim,
-                    ((MInterim)unContrat).IndemnitesInterim);
-            }
+        //    //si le ciontrat c'est un CDI
+        //    if (unContrat is MCdi)
+        //    {
+        //            unContratEF = new CDI(unContrat.NumeroContrat,
+        //            unContrat.Qualification,
+        //            unContrat.SalaireBrut,
+        //            unContrat.DateDebut);
+        //    }
+        //    //Si le contrat est un Interim
+        //    if (unContrat is MInterim)
+        //    {
+        //        unContratEF = new Interim(unContrat.NumeroContrat,
+        //            unContrat.Qualification,
+        //            0,
+        //            unContrat.DateDebut,
+        //            ((MInterim)unContrat).DateFin,
+        //            ((MInterim)unContrat).Motif,
+        //            ((MInterim)unContrat).AgenceInterim,
+        //            ((MInterim)unContrat).IndemnitesInterim);
+        //    }
 
-            //Si le contrat est un cdd
-            if (unContrat is MCdd)
-            {
-                unContratEF = new Cdd(unContrat.NumeroContrat,
-                    unContrat.Qualification,
-                    unContrat.SalaireBrut,
-                    unContrat.DateDebut,
-                    ((MCdd)unContrat).DateFin,
-                    ((MCdd)unContrat).Motif);
-            }
+        //    //Si le contrat est un cdd
+        //    if (unContrat is MCdd)
+        //    {
+        //        unContratEF = new Cdd(unContrat.NumeroContrat,
+        //            unContrat.Qualification,
+        //            unContrat.SalaireBrut,
+        //            unContrat.DateDebut,
+        //            ((MCdd)unContrat).DateFin,
+        //            ((MCdd)unContrat).Motif);
+        //    }
 
-            //si le contrat est un Stage
-            if (unContrat is MStagiaire)
-            {
-                unContratEF = new Stage(unContrat.NumeroContrat,
-                    unContrat.Qualification,
-                    unContrat.SalaireBrut,
-                    unContrat.DateDebut,
-                    ((MStagiaire)unContrat).DateFin,
-                    ((MStagiaire)unContrat).Motif,
-                    ((MStagiaire)unContrat).Ecole,
-                    ((MStagiaire)unContrat).Mission);
-            }
+        //    //si le contrat est un Stage
+        //    if (unContrat is MStagiaire)
+        //    {
+        //        unContratEF = new Stage(unContrat.NumeroContrat,
+        //            unContrat.Qualification,
+        //            unContrat.SalaireBrut,
+        //            unContrat.DateDebut,
+        //            ((MStagiaire)unContrat).DateFin,
+        //            ((MStagiaire)unContrat).Motif,
+        //            ((MStagiaire)unContrat).Ecole,
+        //            ((MStagiaire)unContrat).Mission);
+        //    }
 
-            try
-            {
-                DonneesDAO.DBContextABI.ContratsSet.Add(unContratEF);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    try
+        //    {
+        //        DonneesDAO.DBContextABI.ContratsSet.Add(unContratEF);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
             
-            //unCollaboateurEF.Contrats = unCollabo.
-           //leCollaborateur.AjouterContrat(leContrat);
-        }
+        //    //unCollaboateurEF.Contrats = unCollabo.
+        //   //leCollaborateur.AjouterContrat(leContrat);
+        //}
 
     }
 }
