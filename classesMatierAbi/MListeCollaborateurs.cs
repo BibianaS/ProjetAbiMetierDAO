@@ -63,7 +63,7 @@ namespace ABI
             dtCollaborateurs.Clear();
             foreach (MCollaborateur unCollaborateur in this.listeCollaborateurs.Values)
             {
-                dtCollaborateurs.Rows.Add(unCollaborateur.Matricule, unCollaborateur.NomCollabo, unCollaborateur.PrenomCollabo, unCollaborateur.NumeroSS);
+                dtCollaborateurs.Rows.Add(unCollaborateur.Matricule, unCollaborateur.NomCollabo, unCollaborateur.PrenomCollabo, unCollaborateur.NumeroSecu);
             }
             return dtCollaborateurs;
         }

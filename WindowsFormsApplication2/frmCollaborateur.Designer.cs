@@ -35,7 +35,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblSS = new System.Windows.Forms.Label();
-            this.txtSS = new System.Windows.Forms.TextBox();
+            this.txtSecu = new System.Windows.Forms.TextBox();
             this.gpbCollaborateur = new System.Windows.Forms.GroupBox();
             this.gpbCollaborateur.SuspendLayout();
             this.SuspendLayout();
@@ -93,20 +93,20 @@
             this.lblSS.AutoSize = true;
             this.lblSS.Location = new System.Drawing.Point(30, 160);
             this.lblSS.Name = "lblSS";
-            this.lblSS.Size = new System.Drawing.Size(82, 13);
+            this.lblSS.Size = new System.Drawing.Size(93, 13);
             this.lblSS.TabIndex = 6;
-            this.lblSS.Text = "Numéro de SS :";
+            this.lblSS.Text = "Numéro de Secu :";
             // 
-            // txtSS
+            // txtSecu
             // 
-            this.txtSS.Location = new System.Drawing.Point(123, 157);
-            this.txtSS.Name = "txtSS";
-            this.txtSS.Size = new System.Drawing.Size(100, 20);
-            this.txtSS.TabIndex = 7;
+            this.txtSecu.Location = new System.Drawing.Point(123, 157);
+            this.txtSecu.Name = "txtSecu";
+            this.txtSecu.Size = new System.Drawing.Size(100, 20);
+            this.txtSecu.TabIndex = 7;
             // 
             // gpbCollaborateur
             // 
-            this.gpbCollaborateur.Controls.Add(this.txtSS);
+            this.gpbCollaborateur.Controls.Add(this.txtSecu);
             this.gpbCollaborateur.Controls.Add(this.lblSS);
             this.gpbCollaborateur.Controls.Add(this.txtNom);
             this.gpbCollaborateur.Controls.Add(this.lblNom);
@@ -146,6 +146,6 @@
         internal System.Windows.Forms.TextBox txtMatricule;
         internal System.Windows.Forms.TextBox txtPrenom;
         internal System.Windows.Forms.TextBox txtNom;
-        internal System.Windows.Forms.TextBox txtSS;
+        internal System.Windows.Forms.TextBox txtSecu;
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
@@ -17,11 +18,13 @@ namespace WindowsFormsApplication2
         {
             this.monCollaborateur = unCollaborateur;
             MContratDAOEFStatic.InstancieUnContrat(unCollaborateur);
-            frmModif = new frmModification(this.monCollaborateur);
-            
+            frmModif = new frmModification(this.monCollaborateur);            
             this.frmModif.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             this.frmModif.grdContrats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdContrats_DoubleClick);
-            frmModif.ShowDialog();
+            if (this.frmModif.ShowDialog() == DialogResult.OK)
+            {
+                MCollaborateurDAOEFStatic.ModifCollaborateur(this.monCollaborateur);
+            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)

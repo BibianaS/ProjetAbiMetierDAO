@@ -9,13 +9,13 @@ namespace DAO
     public partial class Collaborateur
     {
 
-        public Collaborateur(Int32 matricule, String prenomCollabo, String nomCollabo, String photo, Int32 numeroSS)
+        public Collaborateur(Int32 matricule, String prenomCollabo, String nomCollabo, String photo, Int32 numeroSecu)
         {
             this.Matricule = matricule;
             this.PrenomCollabo = prenomCollabo;
             this.NomCollabo = nomCollabo;
             this.PhotoCollabo = "photoCollabo";
-            this.NumeroSS = numeroSS;
+            this.NumeroSecu = numeroSecu;
             this.Contrats = new HashSet<Contrats>();
         }
     }

@@ -103,16 +103,16 @@ namespace ABI
 
             set
             {
-
-                Int32 result = DateTime.Compare(value, DateTime.Today);
-                if (result < 0)
-                {
-                    throw new Exception("Merci de reinseigner une date future");
-                }
-                if (result >= 0)
-                {
-                    this.dateDebut = value;
-                }
+                this.dateDebut = value;
+                //Int32 result = DateTime.Compare(value, DateTime.Today);
+                //if (result < 0)
+                //{
+                //    throw new Exception("Merci de reinseigner une date future");
+                //}
+                //if (result >= 0)
+                //{
+                //    this.dateDebut = value;
+                //}
             }
         }
 

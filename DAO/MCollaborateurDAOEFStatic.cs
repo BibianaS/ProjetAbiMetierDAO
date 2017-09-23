@@ -37,15 +37,28 @@ namespace DAO
                     item.PrenomCollabo,
                     item.NomCollabo,
                     item.PhotoCollabo,
-                    item.NumeroSS.ToString());
+                    item.NumeroSecu.ToString());
 
                 //Ajoute à la liste de collaborateurs du MListeCollaborateur les collaborateurs recuperés
                 listeCollaborateurs.Ajouter(leCollaborateur);
             }
         }
-        
 
-
+        public static void ModifCollaborateur(MCollaborateur monCollaborateur)
+        {
+            Collaborateur unCollaborateur;
+            //instancier un dbContext si besoin
+            if (DonneesDAO.DBContextABI == null)
+            {
+                DonneesDAO.DBContextABI = new Model1Container();
+            }
+            unCollaborateur = DonneesDAO.DBContextABI.CollaborateurSet.Find(monCollaborateur.Matricule);
+            unCollaborateur.PrenomCollabo = monCollaborateur.PrenomCollabo;
+            unCollaborateur.NomCollabo = monCollaborateur.NomCollabo;
+            unCollaborateur.PhotoCollabo = monCollaborateur.PhotoCollabo;
+            unCollaborateur.NumeroSecu = Int32.Parse(monCollaborateur.NumeroSecu);
+            DonneesDAO.DBContextABI.SaveChanges();
+        }
 
         public static void InserenouveauCollaborateur(MCollaborateur unCollabo, MContrat contrat)
         {
@@ -53,13 +66,11 @@ namespace DAO
             {
                 DonneesDAO.DBContextABI = new Model1Container();
             }
-
-
             Collaborateur unCollaboateurEF = new Collaborateur(unCollabo.Matricule,
                 unCollabo.PrenomCollabo,
                 unCollabo.NomCollabo,
                 unCollabo.PhotoCollabo,
-                Int32.Parse(unCollabo.NumeroSS));
+                Int32.Parse(unCollabo.NumeroSecu));
 
            // Contrats contratEf = new Contrats(contrat.NumeroContrat, contrat.Qualification, contrat.SalaireBrut, contrat.DateDebut);
             Contrats contratEF = MContratDAOEFStatic.creerUnContrat(contrat);

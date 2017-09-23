@@ -46,7 +46,7 @@
     <Property Name="PrenomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="NomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="PhotoCollabo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumeroSS" Type="int" Nullable="false" />
+    <Property Name="NumeroSecu" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet">
     <Key>
@@ -198,7 +198,7 @@
           <Property Name="PrenomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="NomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
           <Property Name="PhotoCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
-          <Property Name="NumeroSS" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="NumeroSecu" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrats" Relationship="Model1.CollaborateurContrats" FromRole="Collaborateur" ToRole="Contrats" />
         </EntityType>
         <EntityType Name="Contrats">
@@ -255,7 +255,7 @@
           <ScalarProperty Name="PrenomCollabo" ColumnName="PrenomCollabo" />
           <ScalarProperty Name="NomCollabo" ColumnName="NomCollabo" />
           <ScalarProperty Name="PhotoCollabo" ColumnName="PhotoCollabo" />
-          <ScalarProperty Name="NumeroSS" ColumnName="NumeroSS" />
+          <ScalarProperty Name="NumeroSecu" ColumnName="NumeroSecu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

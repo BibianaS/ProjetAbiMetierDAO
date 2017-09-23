@@ -25,7 +25,7 @@ namespace WindowsFormsApplication2
             this.txtMatricule.Text = monCollabo.Matricule.ToString();
             this.txtPrenom.Text = monCollabo.PrenomCollabo;
             this.txtNom.Text = monCollabo.NomCollabo;
-            this.txtSS.Text = monCollabo.NumeroSS;
+            this.txtSecu.Text = monCollabo.NumeroSecu;
 
             this.grdContrats.DataSource = monCollabo.ListerContrats();
         }
@@ -37,7 +37,7 @@ namespace WindowsFormsApplication2
                 this.monCollabo.Matricule = Int32.Parse(txtMatricule.Text);
                 this.monCollabo.PrenomCollabo = txtPrenom.Text;
                 this.monCollabo.NomCollabo = txtNom.Text;
-                this.monCollabo.NumeroSS = txtSS.Text;
+                this.monCollabo.NumeroSecu = txtSecu.Text;
                 this.DialogResult = DialogResult.OK;
             }
             catch(Exception ex)
@@ -50,7 +50,5 @@ namespace WindowsFormsApplication2
         {
             this.Close();
         }
-
-
     }
 }

@@ -39,7 +39,7 @@ namespace WindowsFormsApplication2
                 code = false;
                 MessageBox.Show("La matricule n'est pas un entier valide", "ERREUR", MessageBoxButtons.OK);
             }
-            if (!(Outils.EstEntier(this.txtSS.Text)))
+            if (!(Outils.EstEntier(this.txtSecu.Text)))
             {
                 code = false;
                 MessageBox.Show("Le numéro de Securité Sociale n'est pas un entier valide", "ERREUR", MessageBoxButtons.OK);
@@ -56,7 +56,7 @@ namespace WindowsFormsApplication2
                         base.txtPrenom.Text,
                         base.txtNom.Text,
                         "photo",
-                        base.txtSS.Text);
+                        base.txtSecu.Text);
                 return true;
             }
             catch (Exception ex)

@@ -16,16 +16,16 @@ namespace ABI
         private String prenomCollabo;
         private String nomCollabo;
         private string photoCollabo;
-        private String numeroSS;
+        private String numeroSecu;
         private System.Collections.Generic.SortedDictionary<Int32, MContrat> Contrats;
         private System.Data.DataTable dtContrats;
 
-        public MCollaborateur(Int32 Matricule, String prenom, String nom, String photo, String numeroSS)
+        public MCollaborateur(Int32 Matricule, String prenom, String nom, String photo, String numeroSecu)
         {
             this.PhotoCollabo = "photoCollabo";
             this.PrenomCollabo = prenom;
             this.NomCollabo = nom;
-            this.NumeroSS = numeroSS;
+            this.NumeroSecu = numeroSecu;
             this.Matricule = Matricule;
 
             Contrats = new SortedDictionary<Int32, MContrat>();
@@ -39,7 +39,6 @@ namespace ABI
         /// <summary>
         /// Propriete prenom du collaborateur
         /// </summary>
-
         public String PrenomCollabo
         {
             get
@@ -102,11 +101,11 @@ namespace ABI
         /// <summary>
         /// Propriete du Securite sociale
         /// </summary>
-        public String NumeroSS
+        public String NumeroSecu
         {
             get
             {
-                return this.numeroSS;
+                return this.numeroSecu;
             }
             set
             {
@@ -128,7 +127,7 @@ namespace ABI
                     }
                     else
                     {
-                        this.numeroSS = value;  // tout est bon, on affecte la propriété
+                        this.numeroSecu = value;  // tout est bon, on affecte la propriété
                     }
                 }
                 else // il n'y a pas 13 caractères
@@ -140,12 +139,10 @@ namespace ABI
             }
         }
 
+        
         /// <summary>
-        /// Propriete qui define le statud d'un commaborateur
-        /// Actif ou inactif
+        /// propriete de la matricule du collaborateur
         /// </summary>
-    
-
         public int Matricule
         {
             get
@@ -158,7 +155,6 @@ namespace ABI
                 matricule = value;
             }
         }
-
       
         /// <summary>
         /// Ajoute un contrat à la collection
@@ -174,11 +170,6 @@ namespace ABI
             {
                 Contrats.Add(unContrat.NumeroContrat, unContrat);
             }
-        }
-
-        public void ModifierContrat(MContrat unContrat)
-        {
-
         }
 
         /// <summary>
@@ -205,6 +196,7 @@ namespace ABI
             return this.dtContrats;
         }
 
+        //initialise la collection 
         public void initialiseListeContrats()
         {
             this.Contrats.Clear();
