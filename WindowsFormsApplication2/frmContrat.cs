@@ -13,7 +13,7 @@ namespace WindowsFormsApplication2
 {
     public partial class frmContrat : Form
     {
-        MContrat nouveauContrat;
+        private MContrat nouveauContrat;
         private String type = "CDI";
         
         public MContrat NouveauContrat

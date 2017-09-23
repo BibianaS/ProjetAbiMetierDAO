@@ -55,6 +55,7 @@ namespace WindowsFormsApplication2
                         Int32.Parse(base.txtMatricule.Text.Trim()),
                         base.txtPrenom.Text,
                         base.txtNom.Text,
+                        "photo",
                         base.txtSS.Text);
                 return true;
             }

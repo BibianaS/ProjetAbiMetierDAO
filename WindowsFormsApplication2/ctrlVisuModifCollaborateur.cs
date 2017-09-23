@@ -1,4 +1,5 @@
-﻿using ABI;
+﻿using DAO;
+using ABI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace WindowsFormsApplication2
         public ctrlVisuModifCollaborateur(MCollaborateur unCollaborateur)
         {
             this.monCollaborateur = unCollaborateur;
+            MContratDAOEFStatic.InstancieUnContrat(unCollaborateur);
             frmModif = new frmModification(this.monCollaborateur);
+            
             this.frmModif.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             this.frmModif.grdContrats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdContrats_DoubleClick);
             frmModif.ShowDialog();

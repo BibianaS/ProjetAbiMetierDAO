@@ -17,12 +17,8 @@ namespace ABI
         public CtrlNouvContrat()
         {
             frmNouvContrat = new frmContrat();
-
             this.frmNouvContrat.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             resultat = this.frmNouvContrat.ShowDialog();
-
-            //en fin de dialogue recuperer la ref de l'objet
-            this.leContrat = frmNouvContrat.NouveauContrat;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -32,6 +28,7 @@ namespace ABI
                 if (frmNouvContrat.Instancie())
                 {
                     frmNouvContrat.DialogResult = DialogResult.OK;
+                    this.leContrat = frmNouvContrat.NouveauContrat;
                     this.resultat = DialogResult.OK;
                 }
                 else

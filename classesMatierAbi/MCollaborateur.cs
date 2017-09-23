@@ -20,8 +20,9 @@ namespace ABI
         private System.Collections.Generic.SortedDictionary<Int32, MContrat> Contrats;
         private System.Data.DataTable dtContrats;
 
-        public MCollaborateur(Int32 Matricule, String prenom, String nom, String numeroSS)
+        public MCollaborateur(Int32 Matricule, String prenom, String nom, String photo, String numeroSS)
         {
+            this.PhotoCollabo = "photoCollabo";
             this.PrenomCollabo = prenom;
             this.NomCollabo = nom;
             this.NumeroSS = numeroSS;
@@ -164,7 +165,7 @@ namespace ABI
         /// </summary>
         /// <param name="unContrat"></param>
         public void AjouterContrat(MContrat unContrat)
-        {            
+        {   
             if (Contrats.ContainsKey(unContrat.NumeroContrat))
             {
                 throw new Exception("Le numero de contrat existe deja ou il est de valeur 0");
@@ -196,11 +197,17 @@ namespace ABI
         /// <returns></returns>
         public System.Data.DataTable ListerContrats()
         {
+            dtContrats.Clear();
             foreach (MContrat unContrat in this.Contrats.Values)
             {
                 this.dtContrats.Rows.Add(unContrat.NumeroContrat, unContrat.Qualification, unContrat.Statut, unContrat.DateDebut);
             }
             return this.dtContrats;
+        }
+
+        public void initialiseListeContrats()
+        {
+            this.Contrats.Clear();
         }
         public override String ToString()
         {

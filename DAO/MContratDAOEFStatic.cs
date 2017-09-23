@@ -11,6 +11,8 @@ namespace DAO
     {
         public static void InstancieUnContrat(MCollaborateur leCollaborateur)
         {
+            leCollaborateur.initialiseListeContrats();
+               
             //instancier un dbContext si besoin
             if (DonneesDAO.DBContextABI == null)
             {
@@ -35,7 +37,7 @@ namespace DAO
                         item.DateDebut);
                 }
                 //Si le contrat est un Interim
-               if(item is Interim)
+               else if(item is Interim)
                 {
                     leContrat = new MInterim(item.NumeroContrat,
                         item.Qualification,
@@ -47,18 +49,18 @@ namespace DAO
                 }
 
                 //Si le contrat est un cdd
-                if (item is Cdd)
+                else if (item is Cdd)
                 {
                     leContrat = new MCdd(item.NumeroContrat,
                         item.Qualification,
                         item.SalaireBrut,
                         item.DateDebut,
-                        ((Interim)item).DateFin,
-                        ((Interim)item).Motf);
+                        ((Cdd)item).DateFin,
+                        ((Cdd)item).Motf);
                 }
 
                 //si le contrat est un Stage
-                if(item is Stage)
+                else
                 {
                     leContrat = new MStagiaire(item.NumeroContrat,
                         item.Qualification,
@@ -69,19 +71,62 @@ namespace DAO
                         ((Stage)item).Ecole,
                         ((Stage)item).Mission);
                 }
-                //leCollaborateur.AjouterContrat(leContrat);
+
+                leCollaborateur.AjouterContrat(leContrat);
             }
         }
-
-        public static void InsereContrat(MCollaborateur unCollabo, MContrat unContrat)
+        
+       public static Contrats creerUnContrat(MContrat leContrat)
         {
-            if (DonneesDAO.DBContextABI == null)
+            Contrats unContratEF;
+
+            //si le contrat c'est un CDI
+            if (leContrat is MCdi)
             {
-                DonneesDAO.DBContextABI = new Model1Container();
+                unContratEF = new CDI(leContrat.NumeroContrat,
+                    leContrat.Qualification,
+                    leContrat.SalaireBrut,
+                    leContrat.DateDebut);
+                return unContratEF;
+            }
+            //Si le contrat est un Interim
+            else if (leContrat is MInterim)
+            {
+                unContratEF = new Interim(leContrat.NumeroContrat,
+                    leContrat.Qualification,
+                    leContrat.DateDebut,
+                    ((MInterim)leContrat).DateFin,
+                    ((MInterim)leContrat).Motif,
+                    ((MInterim)leContrat).AgenceInterim,
+                    ((MInterim)leContrat).IndemnitesInterim);
+                return unContratEF;
             }
 
+            //Si le contrat est un cdd
+            else if (leContrat is MCdd)
+            {
+                unContratEF = new Cdd(leContrat.NumeroContrat,
+                    leContrat.Qualification,
+                    leContrat.SalaireBrut,
+                    leContrat.DateDebut,
+                    ((MCdd)leContrat).DateFin,
+                    ((MCdd)leContrat).Motif);
+                return unContratEF;
+            }
 
-            //var query = 
+            //si le contrat est un Stage
+            else
+            {
+                unContratEF = new Stage(leContrat.NumeroContrat,
+                   leContrat.Qualification,
+                    leContrat.SalaireBrut,
+                   leContrat.DateDebut,
+                    ((MStagiaire)leContrat).DateFin,
+                    ((MStagiaire)leContrat).Motif,
+                    ((MStagiaire)leContrat).Ecole,
+                    ((MStagiaire)leContrat).Mission);
+                return unContratEF;
+            }
         }
     }
 }

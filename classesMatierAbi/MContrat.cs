@@ -36,7 +36,6 @@ namespace ABI
         /// Constructeur pour l'Interim
         /// </summary>
         /// <param name="qualification"></param>
-        /// <param name="statut"></param>
         /// <param name="salaireBrut"></param>
         /// <param name="dateDebut"></param>
         public MContrat(Int32 numContrat, String qualification, DateTime dateDebut)

@@ -11,6 +11,11 @@ namespace DAO
 
         public Collaborateur(Int32 matricule, String prenomCollabo, String nomCollabo, String photo, Int32 numeroSS)
         {
+            this.Matricule = matricule;
+            this.PrenomCollabo = prenomCollabo;
+            this.NomCollabo = nomCollabo;
+            this.PhotoCollabo = "photoCollabo";
+            this.NumeroSS = numeroSS;
             this.Contrats = new HashSet<Contrats>();
         }
     }

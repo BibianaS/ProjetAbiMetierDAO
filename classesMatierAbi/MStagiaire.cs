@@ -20,15 +20,8 @@ namespace ABI
 
         public string Ecole
         {
-            get
-            {
-                return this.Ecole;
-            }
-
-            set
-            {
-                this.Ecole = value;
-            }
+            get { return this.ecole; }
+            set { this.ecole = value; }
         }
 
         public string Mission

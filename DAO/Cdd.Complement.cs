@@ -8,7 +8,7 @@ namespace DAO
 {
     public partial class Cdd
     {
-        public Cdd(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif)
+        public Cdd(Int32 numContrat, String qualification, Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif): base (numContrat, qualification, salaireBrut, dateDebut, dateDebut, motif)
         {
         }
 
