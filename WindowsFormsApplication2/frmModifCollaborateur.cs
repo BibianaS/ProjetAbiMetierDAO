@@ -22,9 +22,10 @@ namespace WindowsFormsApplication2
 
         public void init()
         {
+            this.btnAjouterPhoto.Text = "Modifier la photo";
             this.txtMatricule.Text = monCollabo.Matricule.ToString();
-            this.txtPrenom.Text = monCollabo.PrenomCollabo;
-            this.txtNom.Text = monCollabo.NomCollabo;
+            this.txtPrenom.Text = monCollabo.PrenomCollaborateur;
+            this.txtNom.Text = monCollabo.NomCollaborateur;
             this.txtSecu.Text = monCollabo.NumeroSecu;
 
             this.grdContrats.DataSource = monCollabo.ListerContrats();
@@ -35,8 +36,8 @@ namespace WindowsFormsApplication2
             try
             {
                 this.monCollabo.Matricule = Int32.Parse(txtMatricule.Text);
-                this.monCollabo.PrenomCollabo = txtPrenom.Text;
-                this.monCollabo.NomCollabo = txtNom.Text;
+                this.monCollabo.PrenomCollaborateur = txtPrenom.Text;
+                this.monCollabo.NomCollaborateur = txtNom.Text;
                 this.monCollabo.NumeroSecu = txtSecu.Text;
                 this.DialogResult = DialogResult.OK;
             }

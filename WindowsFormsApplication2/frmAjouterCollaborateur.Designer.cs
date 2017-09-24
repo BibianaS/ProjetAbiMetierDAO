@@ -37,7 +37,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(207, 331);
+            this.btnOK.Location = new System.Drawing.Point(346, 339);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -46,7 +46,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(287, 331);
+            this.btnAnnuler.Location = new System.Drawing.Point(431, 339);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 9;
@@ -56,7 +56,7 @@
             // 
             // btnAjouterContrat
             // 
-            this.btnAjouterContrat.Location = new System.Drawing.Point(209, 19);
+            this.btnAjouterContrat.Location = new System.Drawing.Point(359, 19);
             this.btnAjouterContrat.Name = "btnAjouterContrat";
             this.btnAjouterContrat.Size = new System.Drawing.Size(114, 23);
             this.btnAjouterContrat.TabIndex = 11;
@@ -68,7 +68,7 @@
             this.gpbContrats.Controls.Add(this.btnAjouterContrat);
             this.gpbContrats.Location = new System.Drawing.Point(33, 253);
             this.gpbContrats.Name = "gpbContrats";
-            this.gpbContrats.Size = new System.Drawing.Size(329, 57);
+            this.gpbContrats.Size = new System.Drawing.Size(502, 57);
             this.gpbContrats.TabIndex = 12;
             this.gpbContrats.TabStop = false;
             this.gpbContrats.Text = "Contrats :";
@@ -76,7 +76,7 @@
             // frmAjouterCollaborateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(383, 374);
+            this.ClientSize = new System.Drawing.Size(555, 374);
             this.Controls.Add(this.gpbContrats);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);

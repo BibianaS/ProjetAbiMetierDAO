@@ -27,6 +27,7 @@ namespace WindowsFormsApplication2
         public frmAjouterCollaborateur()
         {
             InitializeComponent();
+            this.btnAjouterPhoto.Text = "Ajouter une photo";
         }
 
         internal Boolean Control()

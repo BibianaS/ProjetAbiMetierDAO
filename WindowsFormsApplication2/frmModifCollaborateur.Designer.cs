@@ -40,11 +40,10 @@
             // grdContrats
             // 
             this.grdContrats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdContrats.Location = new System.Drawing.Point(369, 52);
+            this.grdContrats.Location = new System.Drawing.Point(33, 293);
             this.grdContrats.Name = "grdContrats";
-            this.grdContrats.Size = new System.Drawing.Size(420, 212);
+            this.grdContrats.Size = new System.Drawing.Size(511, 147);
             this.grdContrats.TabIndex = 9;
-//            this.grdContrats.DoubleClick += new System.EventHandler(this.grdContrats_DoubleClick);
             // 
             // lblAfficheStatut
             // 
@@ -65,7 +64,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(633, 270);
+            this.btnModifier.Location = new System.Drawing.Point(377, 459);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 12;
@@ -75,7 +74,7 @@
             // lblListeContrats
             // 
             this.lblListeContrats.AutoSize = true;
-            this.lblListeContrats.Location = new System.Drawing.Point(368, 36);
+            this.lblListeContrats.Location = new System.Drawing.Point(30, 275);
             this.lblListeContrats.Name = "lblListeContrats";
             this.lblListeContrats.Size = new System.Drawing.Size(91, 13);
             this.lblListeContrats.TabIndex = 14;
@@ -83,7 +82,7 @@
             // 
             // btnRevenir
             // 
-            this.btnRevenir.Location = new System.Drawing.Point(714, 270);
+            this.btnRevenir.Location = new System.Drawing.Point(469, 459);
             this.btnRevenir.Name = "btnRevenir";
             this.btnRevenir.Size = new System.Drawing.Size(75, 23);
             this.btnRevenir.TabIndex = 15;
@@ -94,7 +93,7 @@
             // frmModification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(800, 302);
+            this.ClientSize = new System.Drawing.Size(568, 497);
             this.Controls.Add(this.btnRevenir);
             this.Controls.Add(this.lblListeContrats);
             this.Controls.Add(this.btnModifier);

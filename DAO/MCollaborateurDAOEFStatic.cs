@@ -34,9 +34,9 @@ namespace DAO
             {
                 //Instancie chaque collaborateur
                 leCollaborateur = new MCollaborateur(item.Matricule,
-                    item.PrenomCollabo,
-                    item.NomCollabo,
-                    item.PhotoCollabo,
+                    item.PrenomCollaborateur,
+                    item.NomCollaborateur,
+                    item.PhotoCollaborateur,
                     item.NumeroSecu.ToString());
 
                 //Ajoute à la liste de collaborateurs du MListeCollaborateur les collaborateurs recuperés
@@ -53,9 +53,9 @@ namespace DAO
                 DonneesDAO.DBContextABI = new Model1Container();
             }
             unCollaborateur = DonneesDAO.DBContextABI.CollaborateurSet.Find(monCollaborateur.Matricule);
-            unCollaborateur.PrenomCollabo = monCollaborateur.PrenomCollabo;
-            unCollaborateur.NomCollabo = monCollaborateur.NomCollabo;
-            unCollaborateur.PhotoCollabo = monCollaborateur.PhotoCollabo;
+            unCollaborateur.PrenomCollaborateur = monCollaborateur.PrenomCollaborateur;
+            unCollaborateur.NomCollaborateur = monCollaborateur.NomCollaborateur;
+            unCollaborateur.PhotoCollaborateur = monCollaborateur.PhotoCollaborateur;
             unCollaborateur.NumeroSecu = Int32.Parse(monCollaborateur.NumeroSecu);
             DonneesDAO.DBContextABI.SaveChanges();
         }
@@ -67,9 +67,9 @@ namespace DAO
                 DonneesDAO.DBContextABI = new Model1Container();
             }
             Collaborateur unCollaboateurEF = new Collaborateur(unCollabo.Matricule,
-                unCollabo.PrenomCollabo,
-                unCollabo.NomCollabo,
-                unCollabo.PhotoCollabo,
+                unCollabo.PrenomCollaborateur,
+                unCollabo.NomCollaborateur,
+                unCollabo.PhotoCollaborateur,
                 Int32.Parse(unCollabo.NumeroSecu));
 
            // Contrats contratEf = new Contrats(contrat.NumeroContrat, contrat.Qualification, contrat.SalaireBrut, contrat.DateDebut);

@@ -13,18 +13,18 @@ namespace ABI
     public class MCollaborateur
     {
         private Int32 matricule;
-        private String prenomCollabo;
-        private String nomCollabo;
-        private string photoCollabo;
+        private String prenomCollaborateur;
+        private String nomCollaborateur;
+        private string photoCollaborateur;
         private String numeroSecu;
         private System.Collections.Generic.SortedDictionary<Int32, MContrat> Contrats;
         private System.Data.DataTable dtContrats;
 
         public MCollaborateur(Int32 Matricule, String prenom, String nom, String photo, String numeroSecu)
         {
-            this.PhotoCollabo = "photoCollabo";
-            this.PrenomCollabo = prenom;
-            this.NomCollabo = nom;
+            this.PhotoCollaborateur = "photoCollabo";
+            this.PrenomCollaborateur = prenom;
+            this.NomCollaborateur = nom;
             this.NumeroSecu = numeroSecu;
             this.Matricule = Matricule;
 
@@ -39,11 +39,11 @@ namespace ABI
         /// <summary>
         /// Propriete prenom du collaborateur
         /// </summary>
-        public String PrenomCollabo
+        public String PrenomCollaborateur
         {
             get
             {
-                return this.prenomCollabo;
+                return this.prenomCollaborateur;
             }
             set
             {
@@ -53,7 +53,7 @@ namespace ABI
                 }
                 else
                 {
-                    this.prenomCollabo = value.Trim().ToLower();
+                    this.prenomCollaborateur = value.Trim().ToLower();
                 }
 
             }
@@ -62,11 +62,11 @@ namespace ABI
         /// <summary>
         /// Propriete Nom du collaborateur
         /// </summary>
-        public String NomCollabo
+        public String NomCollaborateur
         {
             get
             {
-                return nomCollabo;
+                return nomCollaborateur;
             }
             set
             {
@@ -76,21 +76,21 @@ namespace ABI
                 }
                 else
                 {
-                    nomCollabo = value.Trim().ToUpper();
+                    nomCollaborateur = value.Trim().ToUpper();
                 }
             }
         }
 
-        public string PhotoCollabo
+        public string PhotoCollaborateur
         {
             get
             {
-                return photoCollabo;
+                return photoCollaborateur;
             }
             set
             {
-                if (this.photoCollabo != value)
-                    this.photoCollabo = value;
+                if (this.photoCollaborateur != value)
+                    this.photoCollaborateur = value;
             }
         }
         
@@ -204,7 +204,7 @@ namespace ABI
         public override String ToString()
         {
             // TODO: implement
-            return "Matricule : " + Matricule + ". Nom : " + NomCollabo + ". Prenom : " + PrenomCollabo;
+            return "Matricule : " + Matricule + ". Nom : " + NomCollaborateur + ". Prenom : " + PrenomCollaborateur;
         }
     }
 }

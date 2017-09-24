@@ -21,9 +21,9 @@ namespace DAO
         }
     
         internal int Matricule { get; set; }
-        internal string PrenomCollabo { get; set; }
-        internal string NomCollabo { get; set; }
-        internal string PhotoCollabo { get; set; }
+        internal string PrenomCollaborateur { get; set; }
+        internal string NomCollaborateur { get; set; }
+        internal string PhotoCollaborateur { get; set; }
         internal int NumeroSecu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

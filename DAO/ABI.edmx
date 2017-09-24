@@ -43,9 +43,9 @@
       <PropertyRef Name="Matricule" />
     </Key>
     <Property Name="Matricule" Type="int" Nullable="false" />
-    <Property Name="PrenomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="NomCollabo" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="PhotoCollabo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrenomCollaborateur" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="NomCollaborateur" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PhotoCollaborateur" Type="nvarchar(max)" Nullable="false" />
     <Property Name="NumeroSecu" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet">
@@ -195,9 +195,9 @@
             <PropertyRef Name="Matricule" />
           </Key>
           <Property Name="Matricule" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
-          <Property Name="PrenomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
-          <Property Name="NomCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
-          <Property Name="PhotoCollabo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="PrenomCollaborateur" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="NomCollaborateur" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" MaxLength="20" />
+          <Property Name="PhotoCollaborateur" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="NumeroSecu" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrats" Relationship="Model1.CollaborateurContrats" FromRole="Collaborateur" ToRole="Contrats" />
         </EntityType>
@@ -252,9 +252,9 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Collaborateur)">
         <MappingFragment StoreEntitySet="CollaborateurSet">
           <ScalarProperty Name="Matricule" ColumnName="Matricule" />
-          <ScalarProperty Name="PrenomCollabo" ColumnName="PrenomCollabo" />
-          <ScalarProperty Name="NomCollabo" ColumnName="NomCollabo" />
-          <ScalarProperty Name="PhotoCollabo" ColumnName="PhotoCollabo" />
+          <ScalarProperty Name="PrenomCollaborateur" ColumnName="PrenomCollaborateur" />
+          <ScalarProperty Name="NomCollaborateur" ColumnName="NomCollaborateur" />
+          <ScalarProperty Name="PhotoCollaborateur" ColumnName="PhotoCollaborateur" />
           <ScalarProperty Name="NumeroSecu" ColumnName="NumeroSecu" />
         </MappingFragment>
       </EntityTypeMapping>
