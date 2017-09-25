@@ -93,13 +93,10 @@ namespace ABI
                     this.photoCollaborateur = value;
             }
         }
-        
-        //TODO
-        //CHANGER LE NOMBRE DE NUMEROS A 13
-
 
         /// <summary>
         /// Propriete du Securite sociale
+        /// Recupere le numero en strring et verifie qu'il s'agit bien d'un Int de 13 caractères
         /// </summary>
         public String NumeroSecu
         {
@@ -133,13 +130,13 @@ namespace ABI
                 else // il n'y a pas 13 caractères
                 {
                     // levée d'exception
-                    throw new Exception(value.ToString() + "\n" + "n'est pas un numero de SS valide : 3 chiffres, pas plus, pas moins");
+                    throw new Exception(value.ToString() + "\n" + "n'est pas un numero de Secu valide : 13 chiffres, pas plus, pas moins");
                 }
 
             }
         }
 
-        
+
         /// <summary>
         /// propriete de la matricule du collaborateur
         /// </summary>
@@ -150,18 +147,29 @@ namespace ABI
                 return matricule;
             }
 
+            //TODO : VERIFICATION DE LA MATRICULE
+
             set
             {
-                matricule = value;
+                if (value == 0)
+                {
+                    throw new Exception("Merci de reinseigner un Nom");
+                }
+                else
+                {
+
+                    matricule = value;
+
+                }
             }
         }
-      
+
         /// <summary>
         /// Ajoute un contrat à la collection
         /// </summary>
         /// <param name="unContrat"></param>
         public void AjouterContrat(MContrat unContrat)
-        {   
+        {
             if (Contrats.ContainsKey(unContrat.NumeroContrat))
             {
                 throw new Exception("Le numero de contrat existe deja ou il est de valeur 0");
@@ -201,6 +209,7 @@ namespace ABI
         {
             this.Contrats.Clear();
         }
+
         public override String ToString()
         {
             // TODO: implement

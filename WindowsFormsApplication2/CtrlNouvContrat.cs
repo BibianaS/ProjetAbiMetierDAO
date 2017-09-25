@@ -14,6 +14,9 @@ namespace ABI
         private MContrat leContrat;
         private DialogResult resultat;
 
+        /// <summary>
+        /// Constructeur du controleur d'un nouveau contrat
+        /// </summary>
         public CtrlNouvContrat()
         {
             frmNouvContrat = new frmContrat();
@@ -21,6 +24,11 @@ namespace ABI
             resultat = this.frmNouvContrat.ShowDialog();
         }
 
+        /// <summary>
+        /// Enregistrement du nouveau contrat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (frmNouvContrat.Controle())
@@ -28,6 +36,7 @@ namespace ABI
                 if (frmNouvContrat.Instancie())
                 {
                     frmNouvContrat.DialogResult = DialogResult.OK;
+                    //recupere la reference du contrat
                     this.leContrat = frmNouvContrat.NouveauContrat;
                     this.resultat = DialogResult.OK;
                 }
@@ -38,6 +47,7 @@ namespace ABI
             }
         }
 
+
         public DialogResult Resultat
         {
             get
@@ -46,7 +56,7 @@ namespace ABI
             }
         }
 
-        //Accesseur à la ref du contrat
+        //Accesseur du contrat
         public MContrat LeContrat
         {
             get

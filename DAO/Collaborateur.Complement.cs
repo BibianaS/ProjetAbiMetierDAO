@@ -14,7 +14,7 @@ namespace DAO
             this.Matricule = matricule;
             this.PrenomCollaborateur = prenomCollaborateur;
             this.NomCollaborateur = nomCollaborateur;
-            this.PhotoCollaborateur = "photoCollabo";
+            this.PhotoCollaborateur = "photoCollaborateur";
             this.NumeroSecu = numeroSecu;
             this.Contrats = new HashSet<Contrats>();
         }

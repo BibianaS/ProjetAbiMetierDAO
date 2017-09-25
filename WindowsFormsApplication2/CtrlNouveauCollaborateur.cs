@@ -19,22 +19,10 @@ namespace ABI
         private CtrlNouvContrat nouvContrat;
 
 
-        public MCollaborateur UnCollaborateur
-        {
-            get
-            {
-                return unCollaborateur;
-            }
-        }
 
-        public DialogResult ResultatDialog
-        {
-            get
-            {
-                return resultatDialog;
-            }
-        }
-
+        /// <summary>
+        /// Constructeur du controleur pour la création d'un nouveau collaboateur
+        /// </summary>
         public CtrlNouveauCollaborateur()
         {
             //Affichag du frm Ajouter
@@ -50,18 +38,20 @@ namespace ABI
                     }
 
 
-        //creation d'un collaborateur
+        //Création d'un collaborateur
         private void btnOK_Click(object sender, EventArgs e)
         {
+            //Démande au form de contrôler et instancier un collaborateur 
             if (this.frmAjouter.Control())
             {
                 if (this.frmAjouter.Instancie())
                 {
                     this.frmAjouter.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.unCollaborateur = this.frmAjouter.NouvCollaborateur;
+                    //Impact su la BDD. 
                     MCollaborateurDAOEFStatic.InserenouveauCollaborateur(unCollaborateur, leContrat);
                     unCollaborateur.AjouterContrat(leContrat);
-
+                    MessageBox.Show("Le collaborateur a bien été créé");
                     this.resultatDialog = this.frmAjouter.DialogResult;
                 }
                 else
@@ -71,16 +61,35 @@ namespace ABI
             }
         }
 
-        //Gestion du contrat
+        //Création d'un nouveau contrat
         private void btnAjouterContrat_Click(object sender, EventArgs e)
         {
             nouvContrat = new CtrlNouvContrat();
+
+            //Si un nouveau contrat a été crée
             if (nouvContrat.Resultat == DialogResult.OK)
             {
+                //le bouton OK pour créer un collaborateur devient visible
                 this.frmAjouter.btnOK.Enabled = true;
+                //on récupère la reference du contrat
                 this.leContrat = this.nouvContrat.LeContrat;
             }
         }
+        //Acccesseur pour un collaborateur
+        public MCollaborateur UnCollaborateur
+        {
+            get
+            {
+                return unCollaborateur;
+            }
+        }
 
+        public DialogResult ResultatDialog
+        {
+            get
+            {
+                return resultatDialog;
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ABI
         private MListeCollaborateurs listeCol;
         private MCollaborateur monCollabo;
         frmABI frmAbi;
+
         /// <summary>
         /// constructeur controleur liste collaborateurs
         /// </summary>
@@ -42,6 +43,11 @@ namespace ABI
             MCollaborateurDAOEFStatic.InstancieCollaborateur(this.listeCol);
         }
 
+        /// <summary>
+        /// Bouton d'ajout d'un collaborateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             CtrlNouveauCollaborateur nouvCol = new CtrlNouveauCollaborateur();
@@ -63,6 +69,11 @@ namespace ABI
             }
         }
 
+        /// <summary>
+        /// Affichage de la liste de collaborateurs dans la data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grdCollaborateurs_DoubleClick(object sender, EventArgs e)
         {
             Int32 cleCollaborateur;
