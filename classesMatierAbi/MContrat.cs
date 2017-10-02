@@ -5,8 +5,15 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
+
 namespace ABI
 {
+    [Serializable]
+    [DataContract]
+    [KnownType(typeof(MTemporaire))]
+    [KnownType(typeof(MCdi))]
+
     public abstract class MContrat
     {
         private Int32 numeroContrat;
@@ -44,10 +51,11 @@ namespace ABI
             this.Qualification = qualification;
             this.Statut = "Actif";
         }
-        
+
         /// <summary>
         /// Propriete du numero de contrat
         /// </summary>
+        [DataMember]
         public Int32 NumeroContrat
         {
             get
@@ -64,6 +72,7 @@ namespace ABI
         /// <summary>
         /// Propriete de la qualification
         /// </summary>
+        [DataMember]
         public String Qualification
         {
             get
@@ -79,6 +88,7 @@ namespace ABI
         /// <summary>
         /// Propriete du Statut
         /// </summary>
+        [DataMember]
         public String Statut
         {
             get
@@ -90,10 +100,11 @@ namespace ABI
                 statut = value;
             }
         }
-        
+
         /// <summary>
         /// Propriete de la date de debut du contrat
         /// </summary>
+        [DataMember]
         public DateTime DateDebut
         {
             get
@@ -119,6 +130,7 @@ namespace ABI
         /// <summary>
         /// Propriete du salaire brut
         /// </summary>
+        [DataMember]
         public Decimal SalaireBrut
         {
             get

@@ -10,6 +10,35 @@ namespace DAO
     public class MCollaborateurDAOEFStatic
     {
 
+        public static List<MCollaborateur> GetListCollaborateur() {
+            if (DonneesDAO.DBContextABI == null)
+            {
+                DonneesDAO.DBContextABI = new Model1Container();
+            }
+            List<MCollaborateur> liste = new List<MCollaborateur>();
+            //Recupere un collaborateur avec une matricrule specifique
+            var query = from a in DonneesDAO.DBContextABI.CollaborateurSet
+                        select a;
+
+            MCollaborateur leCollaborateur;
+
+            foreach (Collaborateur item in query)
+            {
+                //Instancie chaque collaborateur
+                leCollaborateur = new MCollaborateur(item.Matricule,
+                    item.PrenomCollaborateur,
+                    item.NomCollaborateur,
+                    item.PhotoCollaborateur,
+                    item.NumeroSecu.ToString());
+
+                //Ajoute à la liste de collaborateurs du MListeCollaborateur les collaborateurs recuperés
+                liste.Add(leCollaborateur);
+            }
+
+            return liste;
+
+        }
+
         /// <summary>
         /// Recuèere une liste de collaborateurs vide
         /// Recupère chaque collaborateur de la BDD

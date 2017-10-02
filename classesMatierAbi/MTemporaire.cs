@@ -5,11 +5,20 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
 
 namespace ABI
 {
+    [DataContract]
+    [Serializable]
+    [KnownType(typeof(MCdd))]
+    [KnownType(typeof(MInterim))]
+    [KnownType(typeof(MStagiaire))]
+
+    
     public abstract class MTemporaire : MContrat
     {
+        
         private DateTime dateFin;
         private String motif;
         /// <summary>
@@ -41,6 +50,7 @@ namespace ABI
         }
 
         //Méthode de la date de fin
+        [DataMember]
         public DateTime DateFin
         {
             get
@@ -61,6 +71,7 @@ namespace ABI
         }
 
         //Méthode du motif du contrat
+        [DataMember]
         public string Motif
         {
             get

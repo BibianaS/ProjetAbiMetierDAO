@@ -62,6 +62,7 @@ namespace ABI
         }
 
         //Création d'un nouveau contrat
+
         private void btnAjouterContrat_Click(object sender, EventArgs e)
         {
             nouvContrat = new CtrlNouvContrat();

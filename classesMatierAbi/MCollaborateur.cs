@@ -6,10 +6,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace ABI
 {
-
+    [DataContract]
+    [Serializable]
     public class MCollaborateur
     {
         private Int32 matricule;
@@ -39,6 +41,7 @@ namespace ABI
         /// <summary>
         /// Propriete prenom du collaborateur
         /// </summary>
+        [DataMember]
         public String PrenomCollaborateur
         {
             get
@@ -62,6 +65,7 @@ namespace ABI
         /// <summary>
         /// Propriete Nom du collaborateur
         /// </summary>
+        [DataMember]
         public String NomCollaborateur
         {
             get
@@ -81,6 +85,7 @@ namespace ABI
             }
         }
 
+        [DataMember]
         public string PhotoCollaborateur
         {
             get
@@ -98,6 +103,7 @@ namespace ABI
         /// Propriete du Securite sociale
         /// Recupere le numero en strring et verifie qu'il s'agit bien d'un Int de 13 caractères
         /// </summary>
+        [DataMember]
         public String NumeroSecu
         {
             get
@@ -140,6 +146,7 @@ namespace ABI
         /// <summary>
         /// propriete de la matricule du collaborateur
         /// </summary>
+        [DataMember]
         public int Matricule
         {
             get
@@ -168,6 +175,7 @@ namespace ABI
         /// Ajoute un contrat à la collection
         /// </summary>
         /// <param name="unContrat"></param>
+      
         public void AjouterContrat(MContrat unContrat)
         {
             if (Contrats.ContainsKey(unContrat.NumeroContrat))
@@ -185,6 +193,7 @@ namespace ABI
         /// </summary>
         /// <param name="numContrat"></param>
         /// <returns></returns>
+
         public MContrat RestituerContrat(Int32 numContrat)
         {
             return Contrats[numContrat];

@@ -5,12 +5,14 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
 
 namespace ABI
 {
+    [DataContract]
     public class MCdi : MContrat
     {
-               /// <summary>
+        /// <summary>
         /// Constructeur avec date de debut uniquement
         /// </summary>
         /// <param name="qualification"></param>

@@ -5,8 +5,12 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
+
 namespace ABI
 {
+    [DataContract]
+
     public class MCdd : MTemporaire
     {
         public MCdd(Int32 numContrat, String qualification,  Decimal salaireBrut, DateTime dateDebut, DateTime dateFin, String motif) : base(numContrat, qualification, salaireBrut, dateDebut, dateFin, motif)

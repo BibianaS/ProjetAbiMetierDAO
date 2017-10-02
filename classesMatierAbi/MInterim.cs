@@ -5,8 +5,11 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
+
 namespace ABI
 {
+    [DataContract]
     public class MInterim : MTemporaire
     {
         private String agenceInterim;
@@ -20,6 +23,7 @@ namespace ABI
 
 
         //Méthode qui enregistre le nom de l'agence intérim
+        [DataMember]
         public string AgenceInterim
         {
             get
@@ -34,6 +38,7 @@ namespace ABI
         }
 
         //Méthode qui enregistre les indemnités
+        [DataMember]
         public decimal IndemnitesInterim
         {
             get

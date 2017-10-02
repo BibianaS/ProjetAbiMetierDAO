@@ -5,8 +5,11 @@
  ***********************************************************************/
 
 using System;
+using System.Runtime.Serialization;
+
 namespace ABI
 {
+    [DataContract]
     public class MStagiaire : MTemporaire
     {
         private String ecole;
@@ -18,12 +21,15 @@ namespace ABI
             this.Mission = mission;
         }
 
+
+        [DataMember]
         public string Ecole
         {
             get { return this.ecole; }
             set { this.ecole = value; }
         }
 
+        [DataMember]
         public string Mission
         {
             get { return this.mission; }
